@@ -15,16 +15,28 @@
   gap: 24px;
 }
 .form__field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  position: relative;
 }
 .form__label {
-  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transform-origin: left;
+  transition: transform 200ms;
 }
 .form__input {
-  border: 1px solid #ddd;
-  padding: 8px;
+  padding: 6px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: border-color 250ms;
+}
+.form__input:focus {
+  border-color: #3c50eb;
+}
+.form__input:focus + .form__label, .form__input:valid + .form__label {
+  transform: translate(0, -20px) scale(0.8);
 }
 .form__button {
   border: 1px solid #ddd;
