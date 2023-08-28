@@ -1,0 +1,49 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+
+<main>
+  <section>
+    <div class="form">
+      <h1 class="form__title">Product's Edit</h1>
+      <form method="POST" action="/product-edit">
+        <div class="form__content">
+          <h2 class="form__subtitle">Product Info</h2>
+          <div class="form__content--main">
+            <div class="form__field">
+              <input type="text" name="name" value="{{name}}" class="form__input" required>
+              <label for="name" class="form__label">Product's Name:</label>
+            </div>
+            <div class="form__field">
+              <input type="text" name="price" value="{{price}}" class="form__input" required>
+              <label for="price" class="form__label">Price:</label>
+            </div>
+            <div class="form__field">
+              <input type="id" name="id" value="{{id}}" class="form__input" required>
+              <label for="id" class="form__label">ID:</label>
+            </div>
+          </div>
+          <div class="form__field">
+            <textarea type="text" name="description" class="form__input" required>{{description}}</textarea>
+            <label for="description" class="form__label">Description:</label>
+          </div>
+          <div class="form__content--buttons">
+            <button class="form__button">Save and Update</button>
+            <a href="/product-delete?id={{id}}" class="form__button form__button--alarm">Product Delete</a>
+          </div>
+        </div>
+    </div>
+    </form>
+    </div>
+  </section>
+</main>
+
+
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+  Адже наш layout/default.hbs має вже структуру HTML
+  }}
