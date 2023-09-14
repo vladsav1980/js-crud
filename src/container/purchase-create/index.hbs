@@ -1,0 +1,60 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+<main class="main">
+  {{#with data}}
+  <form method="POST" action="/purchase-submit?id={{id}}" class="form-card">
+    {{> heading title="Your order"}}
+
+    <ul class="cart">
+      {{#each cart}}
+      <li class="cart__item">
+        <span>{{text}}</span>
+        <span>${{price}}</span>
+      </li>
+      {{/each}}
+    </ul>
+
+    {{>divider}}
+
+    {{> heading title="Placing an order"}}
+
+    {{>field label="First Name" name="firstname"}}
+
+    {{>field label="Last Name" name="lastname"}}
+
+    {{>field label="Phone" name="phone"}}
+
+    {{>field label="Email Address" name="email"}}
+
+    {{>field label="Comment" name="comment"}}
+
+    {{>field label="Withdraw Bonus" name="bonus"}}
+
+    {{>field label="Promo Code" name="promocode"}}
+
+    {{>divider}}
+
+    {{>field value=totalPrice name="totalPrice" disabled=true}}
+    {{>field value=productPrice name="productPrice" disabled=true}}
+    {{>field value=deliveryPrice name="deliveryPrice" disabled=true}}
+    {{>field value=amount name="amount" disabled=true}}
+
+    <strong class="form-card__total">Total: ${{totalPrice}} (${{bonus}} in bonuses)</strong>
+
+    {{>button text="Place an order"}}
+
+
+  </form>
+  {{/with}}
+</main>
+
+
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+  Адже наш layout/default.hbs має вже структуру HTML
+  }}
