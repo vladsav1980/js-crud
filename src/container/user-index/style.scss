@@ -1,0 +1,71 @@
+@use '../../lib/service.scss' as s;
+
+.form{
+    display:flex;
+    padding: s.space(4);
+    flex-direction: column;
+    gap: s.space(8);
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: s.space(1);
+        border-bottom: 1px solid s.color("light");
+    }
+
+    &__content {
+        display: grid;
+        gap: s.space(6);
+    }
+
+    &__field {
+        position: relative;
+    }
+
+    &__label {
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(10px, 10px);
+        transform-origin: left;
+        transition: transform 200ms;
+    }
+
+    &__input {
+        padding: s.space(2) - 2px; // враховуючи товщину рамки
+        border: 2px solid s.color("light");
+        border-radius: 4px;
+        background-color: transparent;
+        transition: border-color 250ms;
+    }
+
+    &__input:focus {
+        border-color: s.color("primary");
+    }
+
+    &__input:focus + &__label,
+    &__input:valid + &__label {
+        transform: translate(0, -20px) scale(0.8);
+    }
+
+    &__button {
+        border: 1px solid s.color("light");
+        padding: s.space(2);
+        border-radius: 20px;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(10);
+}
+
+.user-list {
+    li {
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
